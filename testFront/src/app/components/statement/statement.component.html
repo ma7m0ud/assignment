@@ -1,0 +1,57 @@
+<form class=" border border-light p-5" action="#!">
+
+    <div class="form-row mb-4">
+        <div class="form-group col">
+            <label for="acountType">Account Type</label>
+            <select [(ngModel)]="searchStatement.accountNumber">
+              <option value="saving">saving</option> 
+            </select>
+        </div>
+          <div class="form-group col">
+            <label for="accountNumber">Account Number </label>
+            <input type="number" class="form-control" id="accountNumber" [(ngModel)]="searchStatement.accountNumber" name="accountNumber" />
+          </div>
+    </div>
+    <div class="form-row mb-4">
+        <div class="form-group col">
+            <label for="dob">From Date</label>
+            <input type="date" class="form-control" id="dob" [(ngModel)]="searchStatement.fromDate" name="dob" />
+          </div>
+          <div class="form-group col">
+            <label for="dob">To Date </label>
+            <input type="date" class="form-control" id="dob" [(ngModel)]="searchStatement.toDate" name="dob" />
+          </div>
+    </div>
+    <div class="form-row mb-4">
+        <div class="form-group col">
+            <label for="dob">From Amount</label>
+            <input type="number" class="form-control" id="dob" [(ngModel)]="searchStatement.fromAmount" name="dob" />
+          </div>
+          <div class="form-group col">
+            <label for="dob">To Amount </label>
+            <input type="number" class="form-control" id="dob" [(ngModel)]="searchStatement.toAmount" name="dob" />
+          </div>
+    </div>
+
+    <button type="submit" (click)="filter()" class="btn btn-primary">Submit</button>
+  </form>
+
+
+<p-table [value]="statements">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>id</th>
+            <th>AccountId</th>
+            <th>Date</th>
+            <th>Amount</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-statement>
+        <tr>
+            <td>{{statement.id}}</td>
+            <td>{{statement.accountId}}</td>
+            <td>{{statement.datefield}}</td>
+            <td>{{statement.amount}}</td>
+        </tr>
+    </ng-template>
+</p-table>
